@@ -5,14 +5,15 @@
 #define PI 3.14159
 
 // Function prototypes
+double getCoordinate(int index);
 double calculateDistance();
 double calculatePerimeter();
 double calculateArea();
 double calculateWidth();
 double calculateHeight();
-double askForUserInput();
 
-
+// Student Name: Robert McGovern
+// UCFID: ro751585
 
 int main(int argc, char **argv) {
     // Call the functions
@@ -25,10 +26,27 @@ int main(int argc, char **argv) {
     return 0; // Return 0 to allow autograder to work
 }
 
-// Function to ask for user input
-double askForUserInput() {
+// Function to get specific coordinates based on index
+double getCoordinate(int index) {
     double value;
-    scanf("%lf", &value); // Read a double value
+    switch (index) {
+        case 1:
+            printf("Enter x1: ");
+            break;
+        case 2:
+            printf("Enter x2: ");
+            break;
+        case 3:
+            printf("Enter y1: ");
+            break;
+        case 4:
+            printf("Enter y2: ");
+            break;
+        default:
+            printf("Invalid input\n");
+            return 0.0; // Invalid index
+    }
+    scanf("%lf", &value);
     return value;
 }
 
@@ -37,17 +55,14 @@ double calculateDistance() {
     double x1, y1, x2, y2;
 
     // Input points
-    printf("Enter x1 and y1 for Point #1: ");
-    x1 = askForUserInput();
-    y1 = askForUserInput();
-
-    printf("Enter x2 and y2 for Point #2: ");
-    x2 = askForUserInput();
-    y2 = askForUserInput();
+    x1 = getCoordinate(1);
+    x2 = getCoordinate(2);
+    y1 = getCoordinate(3);
+    y2 = getCoordinate(4);
 
     // Output the entered points
-    printf("Point #1 entered: x1 = %.2lf; y1 = %.2lf\n", x1, y1);
-    printf("Point #2 entered: x2 = %.2lf; y2 = %.2lf\n", x2, y2);
+    printf("Point #1 entered: x1 = %.2lf; x2 = %.2lf\n", x1, x2);
+    printf("Point #2 entered: y1 = %.2lf; y2 = %.2lf\n", y1, y2);
 
     // Calculate distance
     double distance = sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));
@@ -62,70 +77,4 @@ double calculatePerimeter() {
     double height = calculateHeight();
     double perimeter = 2 * (width + height); // Perimeter formula for a rectangle
     
-    printf("The perimeter of the city encompassed by your request is %.2lf\n", perimeter);
-
-    // Return difficulty score
-    return 3.0; // Example difficulty level
-}
-
-// Function to calculate the area of a rectangle
-double calculateArea() {
-    double width = calculateWidth();
-    double height = calculateHeight();
-    double area = width * height; // Area of a rectangle
-
-    printf("The area of the city encompassed by your request is %.2lf\n", area);
-
-    // Return difficulty score
-    return 3.0;
-}
-
-// Function to calculate the width (difference between x-coordinates)
-double calculateWidth() {
-    double x1, y1, x2, y2;
-
-    // Input points
-    printf("Enter x1 and y1 for Point #1: ");
-    x1 = askForUserInput();
-    y1 = askForUserInput();
-
-    printf("Enter x2 and y2 for Point #2: ");
-    x2 = askForUserInput();
-    y2 = askForUserInput();
-
-    // Output the entered points
-    printf("Point #1 entered: x1 = %.2lf; y1 = %.2lf\n", x1, y1);
-    printf("Point #2 entered: x2 = %.2lf; y2 = %.2lf\n", x2, y2);
-
-    // Calculate width
-    double width = fabs(x2 - x1);
-    printf("The width of the city encompassed by your request is %.2lf\n", width);
-
-    // Return difficulty score
-    return 2.0;
-}
-
-// Function to calculate the height (difference between y-coordinates)
-double calculateHeight() {
-    double x1, y1, x2, y2;
-
-    // Input points
-    printf("Enter x1 and y1 for Point #1: ");
-    x1 = askForUserInput();
-    y1 = askForUserInput();
-
-    printf("Enter x2 and y2 for Point #2: ");
-    x2 = askForUserInput();
-    y2 = askForUserInput();
-
-    // Output the entered points
-    printf("Point #1 entered: x1 = %.2lf; y1 = %.2lf\n", x1, y1);
-    printf("Point #2 entered: x2 = %.2lf; y2 = %.2lf\n", x2, y2);
-
-    // Calculate height
-    double height = fabs(y2 - y1);
-    printf("The height of the city encompassed by your request is %.2lf\n", height);
-
-    // Return difficulty score
-    return 2.0;
-}
+    printf("The perimeter of the
