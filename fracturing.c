@@ -4,6 +4,7 @@
 // Define PI
 #define PI 3.14159
 
+
 // Function prototypes
 double getCoordinate(int index);
 double calculateDistance();
